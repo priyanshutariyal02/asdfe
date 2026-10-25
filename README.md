@@ -165,8 +165,6 @@ git clone https://github.com/priyanshutariyal02/asdfe.git
 cd reint-ai-ass
 ```
 
-Replace `https://github.com/priyanshutariyal02/asdfe.git` with the actual Git repository URL.
-
 ### 2. Start the backend
 
 Open a terminal:
