@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      CACHE_TTL_SECONDS: 3600
+      CACHE_TTL_SECONDS: 1800
 
   frontend:
     build:
