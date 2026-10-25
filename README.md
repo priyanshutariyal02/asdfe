@@ -8,6 +8,12 @@ This application uses historical wind generation data from **Elexon**, the UK's 
 
 The first version focuses on purchase decisions made during January 2026.
 
+### Live Demo
+
+- Frontend: https://frontend-ashen-sigma-55.vercel.app/
+- Backend Health Check: https://uk-wind-forecast-api-1qo5.onrender.com/api/health
+- API Documentation: https://uk-wind-forecast-api-1qo5.onrender.com/docs
+
 ## Features
 
 - **Forecast accuracy:** Measure how close wind generation forecasts are to actual generation.
@@ -155,11 +161,11 @@ Install the following tools:
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/priyanshutariyal02/asdfe.git
 cd reint-ai-ass
 ```
 
-Replace `<your-repository-url>` with the actual Git repository URL.
+Replace `https://github.com/priyanshutariyal02/asdfe.git` with the actual Git repository URL.
 
 ### 2. Start the backend
 
@@ -167,7 +173,6 @@ Open a terminal:
 
 ```bash
 cd backend
-
 python -m venv venv
 ```
 
@@ -184,6 +189,22 @@ source venv/bin/activate
 ```powershell
 venv\Scripts\activate
 ```
+
+**Configure environment variables**
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Open `backend/.env` and configure the frontend URL:
+
+```env
+FRONTEND_URL=http://localhost:5173
+```
+
+For production, set `FRONTEND_URL` in your backend hosting provider's environment variables to your deployed frontend URL.
 
 Install the Python dependencies:
 
@@ -218,12 +239,32 @@ Open a second terminal:
 ```bash
 cd frontend
 npm install
+```
+
+**Configure environment variables**
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Open `frontend/.env` and configure the backend API URL:
+
+```env
+# Frontend API URL for local development
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+
+For production, set `VITE_API_BASE_URL` in Vercel to your deployed backend URL.
+
+Start the frontend:
+
+```bash
 npm run dev
 ```
 
-Open the local URL shown by Vite, usually:
-
-http://localhost:5173
+Open the local URL shown by Vite, usually [http://localhost:5173](http://localhost:5173).
 
 The backend must be running for the dashboard to load its data.
 

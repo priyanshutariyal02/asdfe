@@ -6,7 +6,7 @@ from typing import Any, Awaitable, Callable
 
 
 CACHE_TTL_SECONDS = int(
-    os.getenv("CACHE_TTL_SECONDS", "3600")
+    os.getenv("CACHE_TTL_SECONDS", "1800")
 )
 
 
