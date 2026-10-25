@@ -1,3 +1,4 @@
+import os
 from datetime import date, timedelta
 
 import pandas as pd
@@ -23,9 +24,18 @@ app = FastAPI(
     version="1.0.0",
 )
 
+
+frontend_url = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:5173",
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        frontend_url,
+    ],
     allow_credentials=False,
     allow_methods=["GET"],
     allow_headers=["*"],
